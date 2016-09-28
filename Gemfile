@@ -14,6 +14,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'config'
 gem 'devise'
+gem 'jquery-turbolinks'
 
 group :development, :test do
   gem 'byebug', platform: :mri
