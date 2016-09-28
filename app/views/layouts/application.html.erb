@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8" />
     <title><%= (title = yield :title).blank? ? "KLDX | Kuala Lumpur DX Team" : title %></title>
     <meta content='kldx, amateur radio, ham radio, hf, dxing, contesting, 9m2r, marts, kuala lumpur dx team' name='keywords'>
     <meta content='Kuala Lumpur DX Team Group Activists are moving on Amateur Radio activity especially contesting, IOTS, Field Day, and also Emergency Communication' name='description'>
@@ -12,8 +13,12 @@
     <%= yield :meta_tags %>
   </head>
 
-  <body>
+  <body class="landing">
+    <%= render 'header' %>
+    <%= render 'navbar' %>
+    <%= render 'banner' %>
     <%= render 'alert' %>
     <%= yield %>
+    <%= render 'footer' %>
   </body>
 </html>
