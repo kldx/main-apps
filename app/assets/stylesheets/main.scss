@@ -2681,8 +2681,8 @@
 		button.alt,
 		.button.alt {
 			background-color: transparent;
-			box-shadow: inset 0 0 0 2px #51BAA4;
-			color: #51BAA4 !important;
+			box-shadow: inset 0 0 0 2px #c0392b;
+			color: #c0392b !important;
 		}
 
 			input[type="submit"].alt:hover,
@@ -3072,8 +3072,8 @@
 				.wrapper.style1 button.alt,
 				.wrapper.style1 .button.alt {
 					background-color: transparent;
-					box-shadow: inset 0 0 0 2px #51BAA4;
-					color: #51BAA4 !important;
+					box-shadow: inset 0 0 0 2px #c0392b;
+					color: #c0392b !important;
 				}
 
 					.wrapper.style1 input[type="submit"].alt:hover,
@@ -3280,7 +3280,7 @@
 				.wrapper.style2 input[type="button"].special,
 				.wrapper.style2 button.special,
 				.wrapper.style2 .button.special {
-					background-color: #51BAA4;
+					background-color: #c0392b;
 					box-shadow: none;
 					color: #fff !important;
 				}
@@ -3290,7 +3290,7 @@
 					.wrapper.style2 input[type="button"].special:hover,
 					.wrapper.style2 button.special:hover,
 					.wrapper.style2 .button.special:hover {
-						background-color: #63c1ae;
+						background-color: #e74c3c;
 					}
 
 					.wrapper.style2 input[type="submit"].special:active,
@@ -3298,7 +3298,7 @@
 					.wrapper.style2 input[type="button"].special:active,
 					.wrapper.style2 button.special:active,
 					.wrapper.style2 .button.special:active {
-						background-color: #45ad97;
+						background-color: #e74c3c;
 					}
 
 				.wrapper.style2 input[type="submit"].alt,
@@ -3331,7 +3331,7 @@
 			background-color: #1E2832;
 			color: rgba(255, 255, 255, 0.75);
 			background-attachment: fixed;
-			background-image: image-url("overlay.png"), image-url("pic11.jpg");
+			background-image: image-url("overlay.png"), image-url("banner2.jpg");
 			background-size: cover;
 		}
 
@@ -3952,7 +3952,7 @@
 			#banner input[type="button"].special,
 			#banner button.special,
 			#banner .button.special {
-				background-color: #51BAA4;
+				background-color: #c0392b;
 				box-shadow: none;
 				color: #fff !important;
 			}
@@ -3962,7 +3962,7 @@
 				#banner input[type="button"].special:hover,
 				#banner button.special:hover,
 				#banner .button.special:hover {
-					background-color: #63c1ae;
+					background-color: #e74c3c;
 				}
 
 				#banner input[type="submit"].special:active,
@@ -3970,7 +3970,7 @@
 				#banner input[type="button"].special:active,
 				#banner button.special:active,
 				#banner .button.special:active {
-					background-color: #45ad97;
+					background-color: #e74c3c;
 				}
 
 			#banner input[type="submit"].alt,
