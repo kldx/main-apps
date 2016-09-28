@@ -15,6 +15,12 @@
     </ul>
     <ul class="copyright">
       <li>Copyright&copy; 2016 by Kuala Lumpur DX Team (KLDX).</li>
+      <br/>
+      <% if user_signed_in? %>
+        <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to "Staff Login", login_path %>
+      <% end %>
     </ul>
   </div>
 </footer>
