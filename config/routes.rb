@@ -19,7 +19,10 @@ Rails.application.routes.draw do
     get '/settings' => 'users/registrations#edit'
   end
 
-  resources :articles
+  namespace :admin, path: '/master' do
+    get "/" => "dashboards#index", as: 'master'
+    resources :articles
+  end
 
   get "/dashboard" => 'dashboards#index'
 end
