@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   attr_accessor :login
 
+  has_many :articles
+
   validates :callsign,
     :presence => true,
     :uniqueness => {
