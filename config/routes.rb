@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :articles
   root 'pages#index'
   devise_for :users, controllers: {
     sessions: 'users/sessions',
@@ -15,4 +14,8 @@ Rails.application.routes.draw do
     get '/register' => 'users/registrations#new'
     get '/settings' => 'users/registrations#edit'
   end
+
+  resources :articles
+
+  get "/dashboard" => 'dashboards#index'
 end
