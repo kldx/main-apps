@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title><%= (title = yield :title).blank? ? "KLDX | Kuala Lumpur DX Team" : title %></title>
+    <meta content='kldx, amateur radio, ham radio, hf, dxing, contesting, 9m2r, marts, kuala lumpur dx team' name='keywords'>
+    <meta content='Kuala Lumpur DX Team Group Activists are moving on Amateur Radio activity especially contesting, IOTS, Field Day, and also Emergency Communication' name='description'>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' name='viewport'>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'admin', 'data-turbolinks-track': 'reload' %>
+    <%= yield :meta_tags %>
+  </head>
+
+  <body>
+    <%= render 'alert' %>
+    <%= yield %>
+  </body>
+</html>
