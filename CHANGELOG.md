@@ -1,5 +1,16 @@
 # Change Log
 
+## [Unreleased](https://github.com/kldx/main-apps/tree/HEAD)
+
+[Full Changelog](https://github.com/kldx/main-apps/compare/v0.0.2...HEAD)
+
+**Implemented enhancements:**
+
+- Redesign user auth page [\#3](https://github.com/kldx/main-apps/issues/3)
+
+## [v0.0.2](https://github.com/kldx/main-apps/tree/v0.0.2) (2016-09-29)
+[Full Changelog](https://github.com/kldx/main-apps/compare/v0.0.1...v0.0.2)
+
 ## [v0.0.1](https://github.com/kldx/main-apps/tree/v0.0.1) (2016-09-29)
 
 
