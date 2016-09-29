@@ -6,6 +6,7 @@ class Article < ApplicationRecord
   friendly_id :title, use: [:slugged, :finders, :history]
 
   validates :title, presence: {message: "can't be blank"}, length: { in: 2..250 }
+  validates :description, presence: {message: "can't be blank"}
   validates :default_image, presence: {message: "can't be blank"}
 
   default_scope -> { order('articles.created_at DESC') }
