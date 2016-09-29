@@ -20,4 +20,5 @@ Rails.application.routes.draw do
   end
 
   get "/dashboard" => 'dashboards#index'
+  get 'crew' => 'pages#crew'
 end
