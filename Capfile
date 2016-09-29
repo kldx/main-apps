@@ -4,7 +4,7 @@ require "capistrano/setup"
 # Include default deployment tasks
 require "capistrano/deploy"
 require "capistrano/rails"
-require "capistrano/gitflow"
+# require "capistrano/gitflow"
 require "capistrano/faster_assets"
 require "capistrano/rbenv"
 set :rbenv_type, :user

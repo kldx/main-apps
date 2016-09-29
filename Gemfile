@@ -36,7 +36,7 @@ group :development do
   gem 'capistrano-rails', '~> 1.1'
   gem 'capistrano-rbenv', '~> 2.0'
   gem 'capistrano-faster-assets', '~> 1.0'
-  gem 'capistrano-gitflow', git: 'https://github.com/technicalpickles/capistrano-gitflow.git'
+  # gem 'capistrano-gitflow', git: 'https://github.com/technicalpickles/capistrano-gitflow.git'
   gem 'github_changelog_generator'
 end
 
