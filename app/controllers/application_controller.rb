@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_raven_context
   include Authenticable
 
   protected
@@ -13,5 +14,12 @@ class ApplicationController < ActionController::Base
 
   def article_params
     params.require(:article).permit(:title, :description, :default_image, :status)
+  end
+
+  private
+
+  def set_raven_context
+    Raven.user_context(id: session[:current_user.id]) # or anything else in session
+    Raven.extra_context(params: params.to_hash, url: request.url)
   end
 end
