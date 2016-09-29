@@ -1,8 +1,7 @@
 # Change Log
 
-## [Unreleased](https://github.com/kldx/main-apps/tree/HEAD)
-
-[Full Changelog](https://github.com/kldx/main-apps/compare/v0.0.2...HEAD)
+## [v0.0.3](https://github.com/kldx/main-apps/tree/v0.0.3) (2016-09-29)
+[Full Changelog](https://github.com/kldx/main-apps/compare/v0.0.2...v0.0.3)
 
 **Implemented enhancements:**
 
