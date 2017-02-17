@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="fixed header-dark sidebar-left-sm">
   <head>
     <meta charset="utf-8" />
     <title><%= (title = yield :title).blank? ? "KLDX | Kuala Lumpur DX Team" : title %></title>
@@ -13,8 +13,15 @@
     <%= yield :meta_tags %>
   </head>
 
-  <body>
+  <body class="<%= body_class %>">
     <%= render 'alert' %>
-    <%= yield %>
+    <section class="body">
+      <%= render 'admin_header' %>
+      <div class="inner-wrapper">
+        <%= render 'admin_left_sidebar' %>
+        <%= yield %>
+      </div>
+      <%= render 'admin_right_sidebar' %>
+    </section>
   </body>
 </html>
