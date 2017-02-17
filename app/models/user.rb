@@ -4,7 +4,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable
 
-  attr_accessor :login
+  attr_accessor :login, :avatar_url
 
   has_many :articles
 
