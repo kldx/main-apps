@@ -27,6 +27,10 @@
 //= require gauge/gauge
 //= require snap.svg/snap.svg.js
 //= require liquid-meter/liquid.meter
+//= require select2/select2
+//= require jquery-datatables/jquery.dataTables
+//= require jquery-datatables/dataTables.tableTools
+//= require jquery-datatables-bs3/datatables
 //= require admin/theme
 //= require admin/style
 //= require admin/theme.init

@@ -36,24 +36,21 @@
 	<!-- start: page -->
 	<div class="row">
     <div class="col-md-6">
-      <section class="panel panel-featured-left panel-featured-primary">
+      <section class="panel">
 				<div class="panel-body bg-primary">
-					<div class="widget-summary">
+					<div class="widget-summary widget-summary-md">
 						<div class="widget-summary-col widget-summary-col-icon">
 							<div class="summary-icon bg-primary">
-								<i class="fa fa-life-ring"></i>
+								<i class="fa fa-newspaper-o"></i>
 							</div>
 						</div>
 						<div class="widget-summary-col">
 							<div class="summary">
-								<h4 class="title">Support Questions</h4>
+								<h4 class="title">Total Article</h4>
 								<div class="info">
-									<strong class="amount">1281</strong>
+									<strong class="amount"><%= @articles.count %></strong>
 									<span class="text-primary">(14 unread)</span>
 								</div>
-							</div>
-							<div class="summary-footer">
-								<a class="text-uppercase">(view all)</a>
 							</div>
 						</div>
 					</div>
@@ -63,7 +60,7 @@
     <div class="col-md-6">
       <section class="panel panel-featured-left panel-featured-primary">
 				<div class="panel-body">
-					<div class="widget-summary">
+					<div class="widget-summary widget-summary-md">
 						<div class="widget-summary-col widget-summary-col-icon">
 							<div class="summary-icon bg-primary">
 								<i class="fa fa-life-ring"></i>
@@ -88,36 +85,28 @@
 	</div>
 
   <div class="row">
-    <div class="col-md-6">
-      <section class="panel panel-featured panel-featured-primary">
-				<header class="panel-heading">
-					<div class="panel-actions">
-						<a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
-						<a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss></a>
-					</div>
-
-					<h2 class="panel-title">Title</h2>
-				</header>
-				<div class="panel-body">
-					<code>.panel-featured</code>
-				</div>
-			</section>
-		</div>
-    <div class="col-md-6">
-			<section class="panel panel-featured">
-				<header class="panel-heading">
-					<div class="panel-actions">
-						<a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
-						<a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss></a>
-					</div>
-
-					<h2 class="panel-title">Title</h2>
-				</header>
-				<div class="panel-body">
-					<code>.panel-featured</code>
-				</div>
-			</section>
-		</div>
-	</div>
+    <div class="col-lg-12">
+      <section class="panel panel-featured-left panel-featured-primary">
+        <header class="panel-heading">
+          <h2 class="panel-title">List of Articles</h2>
+        </header>
+        <div class="panel-body">
+          <table class="table table-bordered table-striped mb-none" id="datatable-kldx">
+            <thead>
+              <tr>
+                <th class="col-md-1">No</th>
+                <th>Title</th>
+                <th class="col-md-2">Submitted Date</th>
+                <th class="col-md-2">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <%= render :partial => "article", :collection => @articles %>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </div>
 	<!-- end: page -->
 </section>
