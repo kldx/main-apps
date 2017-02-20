@@ -15,15 +15,15 @@ class Article < ApplicationRecord
   default_scope -> { order('articles.created_at DESC') }
   scope :pending, -> { where ('status = 0')}
   scope :approved, -> { where ('status = 1')}
-  scope :approved, -> { where ('status = 2')}
+  scope :rejected, -> { where ('status = 2')}
 
-  after_initialize :set_status, if: :new_record?
+  after_initialize :set_default_status, :if => :new_record?
 
   def should_generate_new_friendly_id?
     title_changed?
   end
 
-  def set_status
-    self.status ||= :approved
+  def set_default_status
+    self.status ||= 1
   end
 end

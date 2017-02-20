@@ -17,6 +17,26 @@
 
 <section id="one" class="wrapper style1">
   <div class="inner">
+    <% @articles.each do |article| %>
+      <article class="feature left">
+        <span class=image>
+          <% if article.try(:default_image?) %>
+            <%= image_tag(article.default_image_url(:standard)) %>
+          <% else %>
+            <%= image_tag('article_default_image_high_res.png') %>
+          <% end %>
+        </span>
+        <div class="content">
+          <h2><%= article.title %></h2>
+          <p><%= truncate(strip_tags(article.description), length: 200) %></p>
+          <ul class="actions">
+            <li>
+              <%= link_to "More", article_show_path(article), class: "button alt" %>
+            </li>
+          </ul>
+        </div>
+      </article>
+    <% end %>
     <article class="feature left">
       <span class="image">
         <%= image_tag "lata-berembun.jpg" %>

@@ -19,6 +19,7 @@
 # Ignore MacOS file
 .DS_Store
 .env
+public/uploads/*
 
 config/settings.local.yml
 config/settings/*.local.yml

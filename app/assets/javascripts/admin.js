@@ -16,6 +16,7 @@
 //= require jqueryui-touch-punch/jqueryui-touch-punch
 //= require jquery-appear/jquery-appear
 //= require bootstrap-multiselect/bootstrap-multiselect
+//= require bootstrap-tagsinput/bootstrap-tagsinput
 //= require jquery.easy-pie-chart/jquery.easy-pie-chart
 //= require flot/jquery.flot
 //= require flot.tooltip/flot.tooltip

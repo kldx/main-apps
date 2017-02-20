@@ -1,8 +1,15 @@
 <tr>
   <td><%= article_counter + 1 %></td>
-  <td><%= link_to article.title, "" %></td>
+  <td>
+    <%= link_to article.title, "" %>
+    <p>
+      <% article.tag_list.each do |tag| %>
+        <span class="label label-primary"><%= "#" + tag %></span>
+      <% end %>
+    </p>
+  </td>
   <td><%= article.created_at.strftime("%d %B %Y") %></td>
-  <td><%= article.user.profile.try(:fullname).blank? ? article.user.email : article.user.profile.try(:fullname) %></td>
+  <td><%= article.user.callsign.upcase %></td>
   <td>
     <div class="btn-group btn-group-justified btn-group-xs">
       <%= link_to edit_admin_article_url(article), class: "btn btn-default", "data-toggle" => "tooltip", "data-placement" => "top", title: "Click to edit" do %>

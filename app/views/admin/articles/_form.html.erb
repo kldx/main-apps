@@ -19,7 +19,7 @@
 </div>
 
 <div class="form-group">
-  <%= f.label :default_image, "Default Image", class: "col-md-2 control-label" %>
+  <%= f.label :default_image, "Main Image", class: "col-md-2 control-label" %>
   <div class="col-md-10">
     <p>
       <% if @article.try(:default_image?) %>
@@ -47,16 +47,14 @@
   <%= f.label :tag_list, "Tags", class: "col-md-2 control-label" %>
   <div class="col-md-10">
     <%= f.text_field :tag_list, :class => "form-control", "data-role" => "tagsinput" %>
-    <span class="help-block">
-      Tags separated by commas
-    </span>
+    <span class="help-block">Tags separated by commas</span>
   </div>
 </div>
 
 <div class="form-group">
   <label class="col-md-2 control-label"></label>
   <div class="col-md-10">
-    <%= f.button "Submit", :class => "btn btn-primary", data: { disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..." } %>
+    <%= f.button "Submit", :class => "btn btn-primary", data: { disable_with: "<i class='fa fa-spinner fa-spin'></i> Submitting..." } %>
     <%= link_to 'Cancel', admin_articles_path, :class => "btn btn-link" %>
   </div>
 </div>
