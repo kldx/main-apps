@@ -26,5 +26,8 @@ class Admin::ArticlesController < AdminController
 
   private
 
+    def article_params
+      params.require(:article).permit(:user_id, :title, :description, :default_image, :default_image_cache, :status, :tag_list)
+    end
 
 end
