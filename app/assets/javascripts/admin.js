@@ -9,6 +9,7 @@
 //= require nanoscroller/nanoscroller
 //= require bootstrap-datepicker/bootstrap-datepicker
 //= require bootstrap-timepicker/bootstrap-timepicker
+//= require ckeditor/init
 //= require magnific-popup/jquery.magnific-popup
 //= require jquery-placeholder/jquery-placeholder
 //= require jquery-ui/jquery-ui

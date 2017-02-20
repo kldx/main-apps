@@ -1,5 +1,6 @@
 class Article < ApplicationRecord
   extend FriendlyId
+  mount_uploader :default_image, DefaultImageUploader
 
   belongs_to :user
 

@@ -19,6 +19,11 @@ gem 'react-rails'
 gem 'friendly_id', '~> 5.1.0'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sentry-raven'
+gem 'ckeditor'
+gem 'carrierwave'
+gem 'fog'
+gem 'mini_magick'
+gem 'fastimage'
 
 group :development, :test do
   gem 'byebug', platform: :mri

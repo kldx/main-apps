@@ -4,7 +4,8 @@ class Admin::ArticlesController < AdminController
   end
 
   def new
-    #code
+    @article ||= Article.new
+    render
   end
 
   def create
@@ -25,5 +26,5 @@ class Admin::ArticlesController < AdminController
 
   private
 
-  
+
 end

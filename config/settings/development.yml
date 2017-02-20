@@ -1,1 +1,5 @@
 domain: main-apps.dev
+s3:
+  bucket: kldx-dev
+  region: ap-southeast-1
+image_host: https://kldx-dev.s3.amazonaws.com
