@@ -13,6 +13,11 @@ module ApplicationHelper
   end
 
   def check_dashboard_page
-    false if current_page?(dashboard_path)
+    # false if current_page?(dashboard_path)
+    false
+  end
+
+  def disable_turbolink
+    false
   end
 end
