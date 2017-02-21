@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <title><%= (title = yield :title).blank? ? "KLDX | Kuala Lumpur DX Team" : title %></title>
-    <meta content='kldx, amateur radio, ham radio, hf, dxing, contesting, 9m2r, marts, kuala lumpur dx team' name='keywords'>
+    <meta content='<%= (keyword = yield :keyword).blank? ? "kldx, amateur radio, ham radio, hf, dxing, contesting, 9m2r, marts, kuala lumpur dx team, 9m4iota, tioman island, eantenna, as-046, lighthouse lightship" : keyword %>' name='keywords'>
     <meta content='Kuala Lumpur DX Team Group Activists are moving on Amateur Radio activity especially contesting, IOTS, Field Day, and also Emergency Communication' name='description'>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' name='viewport'>
     <%= csrf_meta_tags %>
