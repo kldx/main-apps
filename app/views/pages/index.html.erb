@@ -23,7 +23,7 @@
       <article class="feature left">
         <span class=image>
           <% if article.try(:default_image?) %>
-            <%= image_tag(article.default_image_url(:low_res)) %>
+            <%= image_tag(article.default_image_url(:thumbnail)) %>
           <% else %>
             <%= image_tag('article_default_image_low_res.png') %>
           <% end %>
@@ -39,34 +39,6 @@
         </div>
       </article>
     <% end %>
-    <article class="feature left">
-      <span class="image">
-        <%= image_tag "lata-berembun.jpg" %>
-      </span>
-      <div class="content">
-        <h2>9M2R/P at Lata Berembun, Raub, Pahang from 16th - 18th September 2016</h2>
-        <p>In order to enforce an amateur radio activities, Kuala Lumpur DX Team crew will be set up a portable station at Lata Berembun, Raub, Pahang (+-608m ASL) from...</p>
-        <ul class="actions">
-          <li>
-            <a href="#" class="button alt">More</a>
-          </li>
-        </ul>
-      </div>
-    </article>
-    <article class="feature right">
-      <span class="image">
-        <%= image_tag "merdeka.jpg" %>
-      </span>
-      <div class="content">
-        <h2>KLDX running Malaysian Independence Day with 9M59MY callsign</h2>
-        <p>In Conjunction With Malaysian 59th Independence Day Celebration, Special Event Callsign for Kuala Lumpur Station running at RKAT, Desa Setia Wira, Jalan Padang Tembak...</p>
-        <ul class="actions">
-          <li>
-            <a href="#" class="button alt">More</a>
-          </li>
-        </ul>
-      </div>
-    </article>
   </div>
 </section>
 
