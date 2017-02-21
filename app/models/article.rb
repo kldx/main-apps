@@ -13,9 +13,9 @@ class Article < ApplicationRecord
   validates :default_image, presence: {message: "can't be blank"}
 
   default_scope -> { order('articles.created_at DESC') }
-  scope :pending, -> { where ('status = 0')}
-  scope :approved, -> { where ('status = 1')}
-  scope :rejected, -> { where ('status = 2')}
+  scope :still_pending, -> { where ('status = 0')}
+  scope :been_approved, -> { where ('status = 1')}
+  scope :been_rejected, -> { where ('status = 2')}
 
   after_initialize :set_default_status, :if => :new_record?
 
@@ -24,6 +24,6 @@ class Article < ApplicationRecord
   end
 
   def set_default_status
-    self.status ||= 1
+    self.status ||= :approved
   end
 end

@@ -1,10 +1,10 @@
 class PagesController < ApplicationController
   def index
-    @articles = Article.approved.paginate(:page => params[:page], :per_page => 5)
+    @articles = Article.been_approved.paginate(:page => params[:page], :per_page => 5)
   end
 
   def articles
-    @articles = Article.approved.paginate(:page => params[:page], :per_page => 10)
+    @articles = Article.been_approved.paginate(:page => params[:page], :per_page => 10)
   end
 
   def article_show
