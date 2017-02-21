@@ -33,7 +33,7 @@
           <p><%= truncate(strip_tags(article.description), length: 200) %></p>
           <ul class="actions">
             <li>
-              <%= link_to "More", article_show_path(article), class: "button alt" %>
+              <%= link_to "More", article_show_path(article), class: "button alt", data: { turbolinks: disable_turbolink } %>
             </li>
           </ul>
         </div>
@@ -41,7 +41,7 @@
     <% end %>
     <ul class="actions" style="text-align:center;">
       <li>
-        <%= link_to "View All", articles_path, class: "button big alt" %>
+        <%= link_to "View All", articles_path, class: "button big alt", data: { turbolinks: disable_turbolink } %>
       </li>
     </ul>
   </div>
