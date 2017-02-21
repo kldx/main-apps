@@ -21,9 +21,9 @@ Rails.application.routes.draw do
   end
 
   get "/dashboard" => 'dashboards#index'
-  get 'crew' => 'pages#crew'
+  get '/crew' => 'pages#crew'
 
   # articles
-  get 'articles' => 'pages#articles'
-  get 'articles/:id' => 'pages#articles_show', as: 'article_show'
+  get '/articles' => 'pages#articles'
+  get '/articles/:id' => 'pages#articles_show', as: 'article_show'
 end
