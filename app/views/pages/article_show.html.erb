@@ -41,12 +41,10 @@
           <i class="fa fa-user"></i> Created by <%= image_tag avatar2_url(current_user), height: 30, alt: "avatar", class: "image-avatar" %> <%= @article.user.callsign.upcase %>
           <i class="fa fa-calendar"></i> <%= @article.user.created_at.strftime("%d %B %Y") %>
           <p class="main-hashtag">
-            <% @article.tag_list.each do |tag| %>
-              <span class="hashtag"><%= "#" + tag %></span>
-            <% end %>
+            <span class="list-hashtag"><%= render @article.tags %></span>
           </p>
         </p>
-        <p><%= strip_tags(@article.description) %></p>
+        <p><%= @article.description.html_safe %></p>
       </div>
     </article>
 

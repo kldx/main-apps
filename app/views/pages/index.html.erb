@@ -23,9 +23,9 @@
       <article class="feature left">
         <span class=image>
           <% if article.try(:default_image?) %>
-            <%= image_tag(article.default_image_url(:high_res)) %>
+            <%= image_tag(article.default_image_url(:low_res)) %>
           <% else %>
-            <%= image_tag('article_default_image_high_res.png') %>
+            <%= image_tag('article_default_image_low_res.png') %>
           <% end %>
         </span>
         <div class="content">

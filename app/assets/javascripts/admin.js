@@ -37,4 +37,5 @@
 //= require admin/style
 //= require admin/theme.init
 //= require components
+//= require sweetalert/sweetalert.min
 //= require turbolinks

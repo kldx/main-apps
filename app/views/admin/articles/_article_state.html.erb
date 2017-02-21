@@ -1,0 +1,14 @@
+<div class="btn-group btn-group-justified btn-group-xs">
+<% if article.pending? %>
+  <%= link_to "Mark approve", mark_approve_admin_article_path(article), method: :patch, remote: true, class: "btn btn-primary" %>
+  <%= link_to "Mark rejected", mark_reject_admin_article_path(article), method: :patch, remote: true, class: "btn btn-danger" %>
+<% end %>
+<% if article.approved? %>
+  <%= link_to "Mark pending", mark_pending_admin_article_path(article), method: :patch, remote: true, class: "btn btn-warning" %>
+  <%= link_to "Mark rejected", mark_reject_admin_article_path(article), method: :patch, remote: true, class: "btn btn-danger" %>
+<% end %>
+<% if article.rejected? %>
+  <%= link_to "Mark approve", mark_approve_admin_article_path(article), method: :patch, remote: true, class: "btn btn-primary" %>
+  <%= link_to "Mark pending", mark_pending_admin_article_path(article), method: :patch, remote: true, class: "btn btn-warning" %>
+<% end %>
+</div>

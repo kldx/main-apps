@@ -17,8 +17,16 @@ Rails.application.routes.draw do
 
   namespace :admin, path: '/master' do
     get "/" => "dashboards#index", as: 'master'
-    resources :articles, except: :show
+    resources :articles, except: :show do
+      member do
+        patch :mark_approve
+        patch :mark_reject
+        patch :mark_pending
+      end
+    end
   end
+
+  resources :tags, only: [:index, :show]
 
   get "/dashboard" => 'dashboards#index'
   get '/crew' => 'pages#crew'

@@ -26,4 +26,8 @@ class Article < ApplicationRecord
   def set_default_status
     self.status ||= :approved
   end
+
+  def tag_list
+    self.tags.join(',')
+  end
 end

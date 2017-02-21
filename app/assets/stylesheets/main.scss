@@ -4067,13 +4067,21 @@
 			margin-top: -7px;
 		}
 
-		span.hashtag {
+		.hashtag {
 			font-size: 12px;
 			background-color: #3498db;
 			border-radius: 4px;
-			color: #fff;
 			padding: 2px 5px;
 			font-family: monospace;
+		}
+
+		.hashtag:hover {
+			background-color: #286090;
+		}
+
+		.list-hashtag a.hashtag {
+			color: #fff;
+			text-decoration: none;
 		}
 
 		@media screen and (max-width: 1680px) {

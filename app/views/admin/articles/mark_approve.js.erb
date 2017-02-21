@@ -1,0 +1,3 @@
+$("#article-status_<%= @article.id %>").html("<span class='label label-primary'>Approved</span>");
+$("#article-state_<%= @article.id %>").html("<%= j render partial: 'article_state', locals: {:article => @article} %>");
+swal("Good job!", "Notification has been sent to all subscribers!", "success")
