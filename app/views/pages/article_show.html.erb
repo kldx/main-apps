@@ -1,0 +1,54 @@
+<% content_for :title do %>
+  KLDX | <%= @article.title %>
+<% end %>
+
+<% content_for :meta_tags do %>
+  <%= render :partial => 'application/meta_tags',
+             :locals => {
+               :type => "website",
+               :title => "KLDX | #{@article.title}",
+               :url => request.url,
+               :description => "#{truncate(strip_tags(@article.description), length: 100)}",
+               :canonical => request.url,
+               :og_title => "KLDX | #{@article.title}",
+               :og_description => "#{truncate(strip_tags(@article.description), length: 100)}"
+            } %>
+<% end %>
+
+<style media="screen">
+  #banner-article {
+    padding: 8em 0 6em 0;
+    background-color: #1E2832;
+    color: rgba(255, 255, 255, 0.75);
+    background-attachment: fixed;
+    background-image: url("/assets/overlay.png"), url("<%= @article.default_image_url(:high_res) %>");
+    background-size: cover;
+    text-align: center;
+  }
+</style>
+
+<section id="banner-article">
+  <h2><%= @article.title %></h2>
+  <p><%= truncate(strip_tags(@article.description), length: 100) %></p>
+</section>
+
+
+<section id="one" class="wrapper style1">
+  <div class="inner">
+    <article class="feature">
+      <div class="content" style="width: 100%;">
+        <p class="creator">
+          <i class="fa fa-user"></i> Created by <%= image_tag avatar2_url(current_user), height: 30, alt: "avatar", class: "image-avatar" %> <%= @article.user.callsign.upcase %>
+          <i class="fa fa-calendar"></i> <%= @article.user.created_at.strftime("%d %B %Y") %>
+          <p class="main-hashtag">
+            <% @article.tag_list.each do |tag| %>
+              <span class="hashtag"><%= "#" + tag %></span>
+            <% end %>
+          </p>
+        </p>
+        <p><%= strip_tags(@article.description) %></p>
+      </div>
+    </article>
+
+  </div>
+</section>

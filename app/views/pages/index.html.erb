@@ -15,13 +15,15 @@
             } %>
 <% end %>
 
+<%= render 'banner' %>
+
 <section id="one" class="wrapper style1">
   <div class="inner">
     <% @articles.each do |article| %>
       <article class="feature left">
         <span class=image>
           <% if article.try(:default_image?) %>
-            <%= image_tag(article.default_image_url(:standard)) %>
+            <%= image_tag(article.default_image_url(:high_res)) %>
           <% else %>
             <%= image_tag('article_default_image_high_res.png') %>
           <% end %>

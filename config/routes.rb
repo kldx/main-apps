@@ -25,5 +25,5 @@ Rails.application.routes.draw do
 
   # articles
   get '/articles' => 'pages#articles'
-  get '/articles/:id' => 'pages#articles_show', as: 'article_show'
+  get '/articles/:id' => 'pages#article_show', as: 'article_show'
 end

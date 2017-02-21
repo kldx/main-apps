@@ -2712,7 +2712,7 @@
 		-webkit-align-items: center;
 		-ms-align-items: center;
 		align-items: center;
-		margin-bottom: 6em;
+		margin-bottom: 2em;
 	}
 
 		.feature:last-child {
@@ -2848,7 +2848,7 @@
 /* Wrapper */
 
 	.wrapper {
-		padding: 8em 0 6em 0;
+		padding: 2em 0 1em 0;
 		position: relative;
 	}
 
@@ -3884,32 +3884,39 @@
 		text-align: center;
 	}
 
-		#banner input, #banner select, #banner textarea {
+		#banner input, #banner select, #banner textarea,
+		#banner-article input, #banner-article select, #banner-article textarea {
 			color: #fff;
 		}
 
-		#banner a {
+		#banner a,
+		#banner-article a {
 			color: #51BAA4;
 		}
 
-		#banner strong, #banner b {
+		#banner strong, #banner b,
+		#banner-article strong, #banner-article b {
 			color: #fff;
 		}
 
-		#banner h1, #banner h2, #banner h3, #banner h4, #banner h5, #banner h6 {
+		#banner h1, #banner h2, #banner h3, #banner h4, #banner h5, #banner h6,
+		#banner-article h1, #banner-article h2, #banner-article h3, #banner-article h4, #banner-article h5, #banner-article h6 {
 			color: #fff;
 		}
 
-		#banner blockquote {
+		#banner blockquote,
+		#banner-article blockquote {
 			border-left-color: transparent;
 		}
 
-		#banner code {
+		#banner code,
+		#banner-article code {
 			background: rgba(255, 255, 255, 0.05);
 			border-color: transparent;
 		}
 
-		#banner hr {
+		#banner hr,
+		#banner-article hr {
 			border-bottom-color: transparent;
 		}
 
@@ -3917,7 +3924,12 @@
 		#banner input[type="reset"],
 		#banner input[type="button"],
 		#banner button,
-		#banner .button {
+		#banner .button,
+		#banner-article input[type="submit"],
+		#banner-article input[type="reset"],
+		#banner-article input[type="button"],
+		#banner-article button,
+		#banner-article .button {
 			background-color: #fff;
 			box-shadow: none;
 			color: #1E2832 !important;
@@ -3927,7 +3939,12 @@
 			#banner input[type="reset"].icon:before,
 			#banner input[type="button"].icon:before,
 			#banner button.icon:before,
-			#banner .button.icon:before {
+			#banner .button.icon:before,
+			#banner-article input[type="submit"].icon:before,
+			#banner-article input[type="reset"].icon:before,
+			#banner-article input[type="button"].icon:before,
+			#banner-article button.icon:before,
+			#banner-article .button.icon:before {
 				color: #a5a9ad;
 			}
 
@@ -3935,7 +3952,12 @@
 			#banner input[type="reset"]:hover,
 			#banner input[type="button"]:hover,
 			#banner button:hover,
-			#banner .button:hover {
+			#banner .button:hover,
+			#banner-article input[type="submit"]:hover,
+			#banner-article input[type="reset"]:hover,
+			#banner-article input[type="button"]:hover,
+			#banner-article button:hover,
+			#banner-article .button:hover {
 				background-color: white;
 			}
 
@@ -4000,13 +4022,15 @@
 					background-color: rgba(255, 255, 255, 0.1);
 				}
 
-		#banner h2 {
+		#banner h2,
+		#banner-article h2 {
 			font-size: 2.5em;
 			margin: 0 0 0.5em 0;
 			padding: 0;
 		}
 
-		#banner p {
+		#banner p,
+		#banner-article p {
 			color: #fff;
 			font-size: 1.5em;
 			margin-bottom: 1.75em;
@@ -4026,6 +4050,30 @@
 			margin-bottom: 0.5em;
 			padding: 0.5em;
 			width: 2.25em;
+		}
+
+		.image-avatar {
+			border-radius: 50%;
+			vertical-align: bottom;
+		}
+
+		p.creator {
+			font-family:monospace;
+			font-size: 14px;
+			margin: 0;
+		}
+
+		p.main-hashtag {
+			margin-top: -7px;
+		}
+
+		span.hashtag {
+			font-size: 12px;
+			background-color: #3498db;
+			border-radius: 4px;
+			color: #fff;
+			padding: 2px 5px;
+			font-family: monospace;
 		}
 
 		@media screen and (max-width: 1680px) {
