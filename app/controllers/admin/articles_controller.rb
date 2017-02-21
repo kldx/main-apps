@@ -31,7 +31,7 @@ class Admin::ArticlesController < AdminController
 
   def update
     if @article.update article_params
-      redirect_to articles_path, notice: "Well done! Your article has been update"
+      redirect_to admin_articles_path, notice: "Well done! Your article has been update"
     else
       render 'edit'
     end
