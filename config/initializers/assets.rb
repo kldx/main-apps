@@ -14,4 +14,6 @@ Rails.application.config.assets.precompile += %w( admin.css )
 Rails.application.config.assets.precompile += %w( admin.js )
 Rails.application.config.assets.precompile += %w( auth.css )
 Rails.application.config.assets.precompile += %w( auth.js )
+Rails.application.config.assets.precompile += Ckeditor.assets
 Rails.application.config.assets.precompile += %w( ckeditor/* )
+# Rails.application.config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
