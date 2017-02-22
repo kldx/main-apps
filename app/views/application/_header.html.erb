@@ -14,11 +14,31 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Browse by <span class="caret"></span></a>
           <ul class="dropdown-menu dropdown-metros">
-            <li><%= link_to "Articles/Stories", articles_path, data: { turbolinks: disable_turbolink } %></li>
-            <li><%= link_to "Events/Activities", '', data: { turbolinks: disable_turbolink } %></li>
-            <li><%= link_to "Merchandise/Shop", '', data: { turbolinks: disable_turbolink } %></li>
-            <li><%= link_to "Partnership/Sponsorship", '', data: { turbolinks: disable_turbolink } %></li>
-            <li><%= link_to "KLDX Crew", '', data: { turbolinks: disable_turbolink } %></li>
+            <li>
+              <%= link_to articles_path, data: { turbolinks: disable_turbolink } do %>
+                <i class="fa fa-newspaper-o" aria-hidden="true"></i> Articles/Stories
+              <% end %>
+            </li>
+            <li>
+              <%= link_to '#', data: { turbolinks: disable_turbolink } do %>
+                <i class="fa fa-calendar" aria-hidden="true"></i> Events/Activities
+              <% end %>
+            </li>
+            <li>
+              <%= link_to '#', data: { turbolinks: disable_turbolink } do %>
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i> Merchandise/Shop
+              <% end %>
+            </li>
+            <li>
+              <%= link_to '#', data: { turbolinks: disable_turbolink } do %>
+                <i class="fa fa-ship" aria-hidden="true"></i> Partnership/Sponsorship
+              <% end %>
+            </li>
+            <li>
+              <%= link_to '#', data: { turbolinks: disable_turbolink } do %>
+                <i class="fa fa-users" aria-hidden="true"></i> KLDX Crew
+              <% end %>
+            </li>
           </ul>
         </li>
       </ul>
@@ -53,7 +73,6 @@
             </a>
             <ul class="dropdown-menu dropdown-metros">
               <li><%= link_to "Go to dashboard", dashboard_path, data: { turbolinks: disable_turbolink } %></li>
-              <li><%= link_to "My profile", "", data: { turbolinks: disable_turbolink } %></li>
               <li><%= link_to "Account settings", settings_path, data: { turbolinks: disable_turbolink } %></li>
               <li role="separator" class="divider"></li>
               <li><%= link_to "Sign out", destroy_user_session_path, method: "delete" %></li>

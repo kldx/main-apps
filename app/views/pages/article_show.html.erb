@@ -33,7 +33,7 @@
             Published by:
             <%= image_tag avatar_url(@article.user), class: "img-circle", height: 30 %>
             <strong>
-              <%= link_to @article.user.callsign.upcase, '', data: { turbolinks: disable_turbolink } %>
+              <%= @article.user.callsign.upcase %>
             </strong>
             <i class="fa fa-clock-o"></i> <%= time_ago_in_words(@article.created_at) %> ago
           </p>
