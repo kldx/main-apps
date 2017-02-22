@@ -1,6 +1,66 @@
-<header id="header" class="alt">
-  <h1>
-    <%= link_to image_tag("kldx.png", height: 35), root_path, data: { turbolinks: disable_turbolink } %>
-  </h1>
-  <a href="#nav">Menu</a>
-</header>
+<nav class="navbar navbar-default navbar-metros">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to image_tag('kldx-circle.png', alt: "KLDX Team", class: "navbar-brand"), root_path, data: { turbolinks: disable_turbolink } %>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Browse by <span class="caret"></span></a>
+          <ul class="dropdown-menu dropdown-metros">
+            <li><%= link_to "Articles/Stories", articles_path, data: { turbolinks: disable_turbolink } %></li>
+            <li><%= link_to "Events/Activities", '', data: { turbolinks: disable_turbolink } %></li>
+            <li><%= link_to "Merchandise/Shop", '', data: { turbolinks: disable_turbolink } %></li>
+            <li><%= link_to "Partnership/Sponsorship", '', data: { turbolinks: disable_turbolink } %></li>
+            <li><%= link_to "KLDX Crew", '', data: { turbolinks: disable_turbolink } %></li>
+          </ul>
+        </li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="social-links hidden-sm">
+          <%= link_to "https://www.facebook.com/kldxteam", target: "_blank", title: "Like us on Facebook" do %>
+            <i class="fa fa-facebook-official"></i>
+          <% end %>
+          <%= link_to "https://instagram.com/kldxteam", target: "_blank", title: "Follow us on Instagram" do %>
+            <i class="fa fa-instagram"></i>
+          <% end %>
+        </li>
+        <% if !user_signed_in? %>
+          <li class="login-link">
+            <%= link_to login_path, data: { turbolinks: disable_turbolink } do %>
+              <i class="fa fa-lock"></i>
+              Log In
+            <% end %>
+          </li>
+          <li class="register-link">
+            <%= link_to register_path, data: { turbolinks: disable_turbolink } do %>
+              <i class="fa fa-user"></i>
+              Sign Up
+            <% end %>
+          </li>
+        <% else %>
+          <li class="dropdown user-details">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              <%= image_tag(avatar_url(current_user), class: "img-circle", alt: "#{current_user.email}", height: 35, width: 35) %>
+              <%= current_user.callsign.upcase %> <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu dropdown-metros">
+              <li><%= link_to "Go to dashboard", dashboard_path, data: { turbolinks: disable_turbolink } %></li>
+              <li><%= link_to "My profile", "", data: { turbolinks: disable_turbolink } %></li>
+              <li><%= link_to "Account settings", settings_path, data: { turbolinks: disable_turbolink } %></li>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to "Sign out", destroy_user_session_path, method: "delete" %></li>
+            </ul>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -18,6 +18,24 @@
 	</div>
 </div>
 
+<div class="form-group" id="sponsored_article">
+  <%= f.label :sponsored, "Sponsored Article", class: "col-md-3 control-label" %>
+  <div class="checkbox">
+    <label>
+      <%= f.check_box :sponsored %> Mark as sponsored article
+    </label>
+  </div>
+</div>
+
+<div class="form-group" id="featured">
+  <%= f.label :featured, "Featured Article", class: "col-md-3 control-label"%>
+  <div class="checkbox">
+    <label>
+    <%= f.check_box :featured %> Mark as featured article
+    </label>
+  </div>
+</div>
+
 <div class="form-group">
   <%= f.label :default_image, "Main Image", class: "col-md-2 control-label" %>
   <div class="col-md-10">

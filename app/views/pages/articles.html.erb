@@ -15,34 +15,47 @@
             } %>
 <% end %>
 
-<%= render 'banner' %>
+<div class="top-sections">
+  <h1>Kuala Lumpur DX Team</h1>
+</div>
 
-<section id="one" class="wrapper style1">
-  <div class="inner">
-    <% @articles.each do |article| %>
-      <article class="feature left">
-        <span class=image>
-          <% if article.try(:default_image?) %>
-            <%= image_tag(article.default_image_url(:thumbnail)) %>
-          <% else %>
-            <%= image_tag('article_default_image_low_res.png') %>
+<div class="container">
+
+  <hr>
+
+  <section id="listing">
+
+    <% @articles.each_slice(3) do |group| %>
+    <div class="row">
+      <% group.each do |article| %>
+      <div class="col-md-4">
+        <div class="article article-list">
+          <%= link_to article_show_path(article), class: "article-no-hover", data: { turbolinks: disable_turbolink } do %>
+            <div class="gradientl"></div>
+            <% if article.try(:default_image?) %>
+              <%= image_tag(article.default_image_url(:low_res), class: "img-responsive") %>
+            <% else %>
+              <%= image_tag('article_default_image_low_res.png', class: "img-responsive") %>
+            <% end %>
+            <div class="mini-desc">
+              <div class="article-title">
+                <%= article.title %>
+              </div>
+              <div class="article-date">
+                <i class="fa fa-clock-o"></i> <%= time_ago_in_words(article.created_at) %> ago <i class="fa fa-user"></i> <%= article.user.callsign.upcase %>
+              </div>
+            </div>
           <% end %>
-        </span>
-        <div class="content">
-          <h2><%= article.title %></h2>
-          <p><%= truncate(strip_tags(article.description), length: 200) %></p>
-          <ul class="actions">
-            <li>
-              <%= link_to "More", article_show_path(article), class: "button alt" %>
-            </li>
-          </ul>
         </div>
-      </article>
+      </div>
+      <% end %>
+    </div>
     <% end %>
+
+  </section>
+
+  <div class="middle">
+    <%= will_paginate @articles %>
   </div>
-  <ul class="actions" style="text-align:center;">
-    <li>
-      <%= will_paginate @articles %>
-    </li>
-  </ul>
-</section>
+
+</div>

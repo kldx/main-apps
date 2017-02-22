@@ -1,6 +1,7 @@
 class Article < ApplicationRecord
   enum status: [:pending, :approved, :rejected]
   extend FriendlyId
+  include HTTParty
   acts_as_taggable
   mount_uploader :default_image, DefaultImageUploader
 
@@ -18,6 +19,13 @@ class Article < ApplicationRecord
   scope :still_pending, -> { where ('status = 0')}
   scope :been_approved, -> { where ('status = 1')}
   scope :been_rejected, -> { where ('status = 2')}
+  scope :sponsored, -> { where ('sponsored is TRUE') }
+  scope :published_only, -> { where('sponsored IS NOT TRUE') }
+  scope :featured, -> { where ('featured = TRUE')}
+
+  def sponsored?
+    self.sponsored == TRUE
+  end
 
   def should_generate_new_friendly_id?
     title_changed?
