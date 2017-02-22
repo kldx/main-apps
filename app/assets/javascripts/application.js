@@ -12,10 +12,13 @@
 //
 //= require jquery
 //= require jquery.turbolinks
+//= require bootstrap-sprockets
 //= require jquery_ujs
-//= require skel.min
-//= require util
-//= require main
+//= require jquery.magnific-popup
+//= require pace/pace.min
+//= require style
+//= require sweetalert/sweetalert.min
+//= require jquery-scrollspy.min
 //= require turbolinks
 //= require react
 //= require react_ujs

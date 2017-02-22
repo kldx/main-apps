@@ -64,7 +64,7 @@ class Admin::ArticlesController < AdminController
     end
 
     def article_params
-      params.require(:article).permit(:user_id, :title, :description, :default_image, :default_image_cache, :status, :tag_list)
+      params.require(:article).permit(:user_id, :title, :description, :default_image, :default_image_cache, :status, :tag_list, :featured, :sponsored)
     end
 
     def set_article

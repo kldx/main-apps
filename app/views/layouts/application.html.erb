@@ -13,11 +13,15 @@
     <%= yield :meta_tags %>
   </head>
 
-  <body class="landing" data-no-turbolink>
+  <body class="<%= body_class %>" data-no-turbolink>
+    <div id="fb-root"></div>
+    <%= render 'analytics' %>
     <%= render 'alert' %>
     <%= render 'header' %>
-    <%= render 'navbar' %>
     <%= yield %>
     <%= render 'footer' %>
+    <div class="back-top" title="Back to top">
+      <span class="glyphicon glyphicon-arrow-up"></span> Back to top
+    </div>
   </body>
 </html>

@@ -26,6 +26,7 @@ gem 'mini_magick'
 gem 'fastimage'
 gem 'acts-as-taggable-on', '~> 4.0'
 gem 'will_paginate', '~> 3.1.0'
+gem 'httparty'
 
 group :development, :test do
   gem 'byebug', platform: :mri

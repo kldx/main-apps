@@ -15,99 +15,120 @@
             } %>
 <% end %>
 
-<%= render 'banner' %>
-
-<section id="one" class="wrapper style1">
-  <div class="inner">
-    <% @articles.each do |article| %>
-      <article class="feature left">
-        <span class=image>
-          <% if article.try(:default_image?) %>
-            <%= image_tag(article.default_image_url(:thumbnail)) %>
-          <% else %>
-            <%= image_tag('article_default_image_low_res.png') %>
-          <% end %>
-        </span>
-        <div class="content">
-          <h2><%= article.title %></h2>
-          <p><%= truncate(strip_tags(article.description), length: 200) %></p>
-          <ul class="actions">
-            <li>
-              <%= link_to "More", article_show_path(article), class: "button alt", data: { turbolinks: disable_turbolink } %>
-            </li>
-          </ul>
+<section class="section-white">
+  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <% @all_featured_articles.each_with_index do |article, index|%>
+      <div class="item <%='active'if index == 0 %>">
+        <div class="layer">
+          <%= image_tag(article.default_image_url(:high_res), class: "tint layer-image img-responsive") %>
         </div>
-      </article>
-    <% end %>
-    <ul class="actions" style="text-align:center;">
-      <li>
-        <%= link_to "View All", articles_path, class: "button big alt", data: { turbolinks: disable_turbolink } %>
-      </li>
-    </ul>
-  </div>
-</section>
-
-<!-- Two -->
-<section id="two" class="wrapper special">
-  <div class="inner">
-    <header class="major narrow">
-      <h2>Merchandise For You</h2>
-      <p>To support our plan and next activities, why not get our merchandise for your collection</p>
-    </header>
-    <div class="image-grid">
-      <a href="#" class="image"><%= image_tag "keyer.jpg" %></a>
-      <a href="#" class="image"><%= image_tag "cs-cap.jpg" %></a>
-      <a href="#" class="image"><%= image_tag "tshirt.jpg" %></a>
-      <a href="#" class="image"><%= image_tag "oscillator.jpg" %></a>
-      <a href="#" class="image"><%= image_tag "sticker.jpg" %></a>
-      <a href="#" class="image"><%= image_tag "tuner.jpg" %></a>
-      <a href="#" class="image"><%= image_tag "keychain.jpg" %></a>
-      <a href="#" class="image"><%= image_tag "emblem.jpg" %></a>
-    </div>
-    <ul class="actions">
-      <li><a href="#" class="button big alt">View All</a></li>
-    </ul>
-  </div>
-</section>
-
-<!-- Three -->
-<section id="three" class="wrapper style3 special">
-  <div class="inner">
-    <header class="major narrow	">
-      <h2>Checkout our activities/calendar</h2>
-      <p>We always prepared for what we plan</p>
-    </header>
-    <ul class="actions">
-      <li><a href="#" class="button big alt">View List</a></li>
-    </ul>
-  </div>
-</section>
-
-<!-- Four -->
-<section id="four" class="wrapper style2 special">
-  <div class="inner">
-    <header class="major narrow">
-      <h2>Get in touch</h2>
-      <p>Do you have anything to say to us?</p>
-    </header>
-    <form action="#" method="POST">
-      <div class="container 75%">
-        <div class="row uniform 50%">
-          <div class="6u 12u$(xsmall)">
-            <input name="name" placeholder="Name" type="text" />
-          </div>
-          <div class="6u$ 12u$(xsmall)">
-            <input name="email" placeholder="Email" type="email" />
-          </div>
-          <div class="12u$">
-            <textarea name="message" placeholder="Message" rows="4"></textarea>
-          </div>
+        <center>
+          <%= image_tag(article.default_image_url(:high_res), class: "tint carousel-image img-responsive") %>
+        </center>
+        <div class="carousel-caption centered-carousel">
+          <h1><%= article.title %></h1>
+          <h5 class="hidden-xs hidden-sm">
+            <%= image_tag avatar_url(article.user), class: "img-circle circleborder", alt: "#{article.user.email}" %>
+            by <%= article.user.callsign.upcase %>
+          </h5>
+          <br>
+          <%= link_to article_show_path(article), class: "btn btn-primary btn-xs btn-metros-solid-pink", data: { turbolinks: disable_turbolink } do %>
+            <span class="glyphicon glyphicon-play-circle"></span> Read Now
+          <% end %>
         </div>
       </div>
-      <ul class="actions">
-        <li><input type="submit" class="special" value="Submit" /></li>
-        <li><input type="reset" class="alt" value="Reset" /></li>
-      </ul>
-    </form>
+      <% end %>
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+
   </div>
 </section>
+
+<div class="container">
+
+  <hr>
+
+  <section id="sponsored_articles">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="sponsored_articles sponsored">
+          <% @top_sponsored_article.each do |article| %>
+            <%= link_to article_show_path(article), data: { turbolinks: disable_turbolink } do %>
+              <div class="image-gradient"></div>
+              <% if article.try(:default_image?) %>
+                <%= image_tag(article.default_image_url(:standard), class: "img-responsive") %>
+              <% else %>
+                <%= image_tag('article_default_image_high_res.png', class: "img-responsive") %>
+              <% end %>
+              <div class="status">
+                <span class="label label-danger">SPONSORED</span>
+              </div>
+              <div class="read">
+                <%= link_to article_show_path(article), class: "btn btn-primary btn-sm", data: { turbolinks: disable_turbolink } do %>
+                  <span class="glyphicon glyphicon-play-circle"></span> Read Now
+                <% end %>
+              </div>
+              <div class="details">
+                <h4><%= article.title %></h4>
+                <div class="hidden-xs"><%= truncate(strip_tags(article.description), length: 200) %></div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="ads-area center">
+          <%= link_to root_url, target: "_blank", data: { turbolinks: disable_turbolink } do %>
+      			<%= image_tag "kldx-ads.png", class: "img-responsive", alt: "ads", width: 360, height: 250 %>
+      		<% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="listing">
+
+    <% (@approved_articles - @top_sponsored_article - @all_featured_articles).each_slice(3).with_index do |group, index| %>
+    <div class="row">
+      <% group.each do |article| %>
+      <div class="col-md-4">
+        <div class="article article-list">
+          <%= link_to article_show_path(article), class: "article-no-hover", data: { turbolinks: disable_turbolink } do %>
+            <div class="gradient"></div>
+            <% if article.try(:default_image?) %>
+              <%= image_tag(article.default_image_url(:low_res), class: "img-responsive") %>
+            <% else %>
+              <%= image_tag('article_default_image_low_res.png', class: "img-responsive") %>
+            <% end %>
+
+            <div class="mini-desc">
+              <div class="article-title">
+                <%= article.title %>
+              </div>
+              <div class="article-date">
+                <i class="fa fa-clock-o"></i> <%= time_ago_in_words(article.created_at) %> ago <i class="fa fa-user"></i> <%= article.user.callsign.upcase %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <% end %>
+
+  </section>
+
+  <div class="middle">
+    <%= link_to "see more", articles_path, class: "btn btn-primary btn-xs btn-metros-pink", data: { turbolinks: disable_turbolink } %>
+  </div>
+
+</div>
