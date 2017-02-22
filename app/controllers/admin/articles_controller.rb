@@ -1,7 +1,6 @@
 class Admin::ArticlesController < AdminController
   before_filter :set_user, only: [:index, :new, :create, :edit, :update, :destroy]
-  before_filter :set_article, only: [:edit, :update, :destroy]
-  before_filter :find_article, only:[:mark_approve, :mark_reject, :mark_pending]
+  before_filter :find_article, only:[:edit, :update, :destroy, :mark_approve, :mark_reject, :mark_pending]
 
   def index
     @articles = Article.all
@@ -65,10 +64,6 @@ class Admin::ArticlesController < AdminController
 
     def article_params
       params.require(:article).permit(:user_id, :title, :description, :default_image, :default_image_cache, :status, :tag_list, :featured, :sponsored)
-    end
-
-    def set_article
-      @article = Article.where(slug: params[:id], user: @user).take
     end
 
     def find_article
