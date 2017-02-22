@@ -34,7 +34,7 @@
             by <%= article.user.callsign.upcase %>
           </h5>
           <br>
-          <%= link_to article_show_path(article), class: "btn btn-primary btn-xs btn-metros-solid-pink", data: { turbolinks: disable_turbolink } do %>
+          <%= link_to article_show_path(article), class: "btn btn-primary btn-xs btn-kldx-solid-red", data: { turbolinks: disable_turbolink } do %>
             <span class="glyphicon glyphicon-play-circle"></span> Read Now
           <% end %>
         </div>
@@ -128,7 +128,7 @@
   </section>
 
   <div class="middle">
-    <%= link_to "see more", articles_path, class: "btn btn-primary btn-xs btn-metros-pink", data: { turbolinks: disable_turbolink } %>
+    <%= link_to "see more", articles_path, class: "btn btn-primary btn-xs btn-kldx-red", data: { turbolinks: disable_turbolink } %>
   </div>
 
 </div>

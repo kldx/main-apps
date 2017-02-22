@@ -221,6 +221,11 @@ body {
   border-color: #cccccc;
 }
 
+.navbar-inverse {
+  border-radius: 0;
+  margin-bottom: 0;
+}
+
 .navbar-brand {
 	padding: 5px 10px;
 }
@@ -494,25 +499,25 @@ span.contact {
   border: 2px solid #2367B7;
 }
 
-.btn-metros-pink {
+.btn-kldx-red {
   background: transparent;
-  border: 1px solid #d5007e;
+  border: 1px solid #c0392b;
   border-radius: 4px;
   text-transform: uppercase;
   padding: 10px 20px;
-  color: #d5007e;
+  color: #c0392b;
 }
 
-.btn-metros-pink:hover,
-.btn-metros-pink:active,
-.btn-metros-pink:focus {
-  background: #d5007e;
+.btn-kldx-red:hover,
+.btn-kldx-red:active,
+.btn-kldx-red:focus {
+  background: #c0392b;
   transition: all 0.3s ease 0s;
-  border: 1px solid #d5007e;
+  border: 1px solid #c0392b;
 }
 
-.btn-metros-solid-pink {
-  background: #d5007e;
+.btn-kldx-solid-red {
+  background: #e74c3c;
   border: transparent;
   border-radius: 4px;
   text-transform: uppercase;
@@ -520,10 +525,10 @@ span.contact {
   color: white;
 }
 
-.btn-metros-solid-pink:hover,
-.btn-metros-solid-pink:active,
-.btn-metros-solid-pink:focus {
-  background: #d5007e;
+.btn-kldx-solid-red:hover,
+.btn-kldx-solid-red:active,
+.btn-kldx-solid-red:focus {
+  background: #c0392b;
   transition: all 0.3s ease 0s;
 }
 
@@ -569,7 +574,7 @@ h1.article-title {
   text-transform: uppercase;
   font-family: "ProximaNovaBold", "helvetica neue", helvetica, sans-serif;
   font-weight: 400;
-  color: #ED018C;
+  color: #e74c3c;
   letter-spacing: 1px;
   font-size: 17px;
 }
@@ -615,7 +620,7 @@ h1.article-title {
   font-weight: 600;
   display: block;
   font-size: 33px;
-  color: #DB1E60;
+  color: #e74c3c;
   font-style: normal;
   line-height: 35px;
   letter-spacing: 1px;
@@ -633,7 +638,7 @@ h1.article-title {
 }
 
 .social-links {
-  border-right: 1px solid #eee;
+  border-right: 1px solid #333;
   height: 50px;
   margin-right: 10px;
 }
@@ -684,9 +689,9 @@ li.register-link > a {
 #footer {
   font-family: "ProximaNovaRegular", "helvetica neue", helvetica, sans-serif;
   margin-top: 20px;
-  background: #EAEAEA;
+  background: #000;
   // height: 250px;
-  color: #666666;
+  color: #fff;
   height: 100%;
 }
 
@@ -704,11 +709,11 @@ li.register-link > a {
 }
 
 #footer .list-unstyled > li > a {
-  color: #666;
+  color: #ccc;
 }
 
 #footer .list-unstyled > li > a:hover {
-  color: #333;
+  color: #aaa;
   text-decoration: none;
 }
 
