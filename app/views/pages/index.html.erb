@@ -103,7 +103,7 @@
       <div class="col-md-4">
         <div class="article article-list">
           <%= link_to article_show_path(article), class: "article-no-hover", data: { turbolinks: disable_turbolink } do %>
-            <div class="gradient"></div>
+            <div class="gradientl"></div>
             <% if article.try(:default_image?) %>
               <%= image_tag(article.default_image_url(:low_res), class: "img-responsive") %>
             <% else %>
