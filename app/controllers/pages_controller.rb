@@ -4,7 +4,7 @@ class PagesController < ApplicationController
     @all_articles = @articles.been_approved.take(7)
     @approved_articles = @all_articles.shift(6)
 
-    @sponsored_article = @articles.sponsored.approved.take(1)
+    @sponsored_article = @articles.sponsored.been_approved.take(1)
     @top_sponsored_article = @sponsored_article.shift(1)
 
     @featured_articles = @articles.been_approved.featured.take(3)
@@ -12,7 +12,7 @@ class PagesController < ApplicationController
   end
 
   def articles
-    @articles = Article.been_approved.featured.paginate(:page => params[:page], :per_page => 10)
+    @articles = Article.been_approved.paginate(:page => params[:page], :per_page => 10)
   end
 
   def article_show
