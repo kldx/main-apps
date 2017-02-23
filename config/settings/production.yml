@@ -6,3 +6,5 @@ image_host: https://kldx-prod.s3.amazonaws.com
 ga_tracking_id:
 facebook:
   app_id: '2005969142963890'
+billplz:
+  url: https://www.billplz.com/api/v3/
