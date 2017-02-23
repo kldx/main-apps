@@ -24,6 +24,15 @@ Rails.application.routes.draw do
         patch :mark_pending
       end
     end
+    namespace :store, path: '/store' do
+      get "/" => "dashboards#index"
+      namespace :shop, path: '/shop' do
+        resources :collections
+      end
+      namespace :merchandise, path: '/merchandise' do
+        resources :collections
+      end
+    end
   end
 
   resources :tags, only: [:index, :show]

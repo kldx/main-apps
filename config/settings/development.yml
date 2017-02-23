@@ -7,4 +7,5 @@ ga_tracking_id:
 facebook:
   app_id: '1220073008062103'
 billplz:
-  url: https://billplz-staging.herokuapp.com/api/v3/
+  collections:
+    url: https://billplz-staging.herokuapp.com/api/v3/collections

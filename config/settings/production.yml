@@ -7,4 +7,5 @@ ga_tracking_id:
 facebook:
   app_id: '2005969142963890'
 billplz:
-  url: https://www.billplz.com/api/v3/
+  collections:
+    url: https://www.billplz.com/api/v3/collections
