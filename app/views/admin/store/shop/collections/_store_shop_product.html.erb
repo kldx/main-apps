@@ -1,0 +1,7 @@
+<tr>
+  <td><%= store_shop_product_counter + 1 %></td>
+  <td>
+    <%= link_to store_shop_product.name, admin_store_shop_collection_product_path(id: store_shop_product, collection_id: @store_shop_collection), data: { turbolinks: false } %>
+  </td>
+  <td><%= link_to "Edit", edit_admin_store_shop_collection_product_path(id: store_shop_product, collection_id: @store_shop_collection), class: "btn btn-xs btn-block btn-default", data: { turbolinks: false } %></td>
+</tr>

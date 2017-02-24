@@ -28,12 +28,12 @@ Rails.application.routes.draw do
       get "/" => "dashboards#index"
       namespace :shop, path: '/shop' do
         resources :collections, except: [:edit, :update, :destroy] do
-          resources :products, except: :index
+          resources :products, except: [:index, :destroy]
         end
       end
       namespace :merchandise, path: '/merchandise' do
         resources :collections, except: [:edit, :update, :destroy] do
-          resources :products, except: :index
+          resources :products, except: [:index, :destroy]
         end
       end
     end
