@@ -23,6 +23,6 @@ class Admin::Store::ProductsController < Store::Product::AdminController
     end
 
     def store_product_params
-      params.require(:store_product).permit(:name, :productable_id, :productable_type)
+      params.require(:store_product).permit(:name, :productable_id, :productable_type, :details, :price, :status, :availability, :default_picture, :default_picture_cache, :quantity, :product_type, :product_id, :slug)
     end
 end

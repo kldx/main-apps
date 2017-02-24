@@ -38,16 +38,7 @@
     <div class="col-md-8">
       <section class="panel panel-featured-left panel-featured-primary">
 				<header class="panel-heading">
-					<h2 class="panel-title"><%= @store_shop_collection.title.titleize %></h2>
-				</header>
-        <div class="panel-body">
-          <p><strong>Collection Title:</strong> <%= @store_shop_collection.title.titleize %></p>
-          <p><strong>Collection Status:</strong> <%= @store_shop_collection.status %></p>
-        </div>
-			</section>
-      <section class="panel panel-featured-left panel-featured-primary">
-				<header class="panel-heading">
-					<h2 class="panel-title">Products</h2>
+					<h2 class="panel-title">List of Products</h2>
 				</header>
         <div class="panel-body">
           <p>
@@ -60,6 +51,7 @@
               <tr>
                 <th class="col-md-1">No</th>
                 <th class="col-md-6">Name</th>
+                <th class="col-md-2">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -67,18 +59,19 @@
             </tbody>
           </table>
         </div>
+        <div class="panel-footer">
+          <%= link_to 'Back', admin_store_shop_collections_path, :class => "btn btn-default", data: { turbolinks: disable_turbolink } %>
+        </div>
 			</section>
     </div>
     <div class="col-md-4">
       <section class="panel">
 				<header class="panel-heading">
-					<h2 class="panel-title">* tips</h2>
+					<h2 class="panel-title">Info</h2>
 				</header>
         <div class="panel-body">
-          GET request from Billplz API:
-          <div class="well">
-            <code><%= Settings.billplz.collections.url+"/#{@store_shop_collection.collection_id}" %></code>
-          </div>
+          <p><strong>Collection Title:</strong> <%= @store_shop_collection.title.titleize %></p>
+          <p><strong>Collection Status:</strong> <%= @store_shop_collection.status %></p>
           <pre>
             <span class='text-danger'>
               <%= JSON.pretty_generate(@response) %>
