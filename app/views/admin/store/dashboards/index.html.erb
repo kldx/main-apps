@@ -47,14 +47,14 @@
   						</div>
   						<div class="widget-summary-col">
   							<div class="summary">
-  								<h4 class="title">Shop</h4>
+  								<h4 class="title">Shop Centre</h4>
   								<div class="info">
-  									<strong class="amount">1281</strong>
-  									<span class="text-primary">(14 unread)</span>
+  									<strong class="amount">Total Collections: <%= @store_shop_collection.count %></strong>
+  									<span class="text-primary">(<%= @store_shop_product.count %> products)</span>
   								</div>
   							</div>
   							<div class="summary-footer">
-                  <%= link_to "(view all)", admin_store_shop_collections_path, class: 'text-muted text-uppercase', data: { turbolinks: disable_turbolink } %>
+                  <%= link_to "(view all)", admin_store_shop_collections_path, class: 'text-muted', data: { turbolinks: disable_turbolink } %>
   							</div>
   						</div>
   					</div>
@@ -72,14 +72,14 @@
   						</div>
   						<div class="widget-summary-col">
   							<div class="summary">
-  								<h4 class="title">Merchandise</h4>
+  								<h4 class="title">Merchandise Centre</h4>
   								<div class="info">
-  									<strong class="amount">1281</strong>
-  									<span class="text-primary">(14 unread)</span>
+  									<strong class="amount">Total Collections: <%= @store_merchandise_collection.count %></strong>
+  									<span class="text-primary">(<%= @store_merchandise_product.count %> products)</span>
   								</div>
   							</div>
   							<div class="summary-footer">
-                  <%= link_to "(view all)", admin_store_merchandise_collections_path, class: 'text-muted text-uppercase', data: { turbolinks: disable_turbolink } %>
+                  <%= link_to "(view all)", admin_store_merchandise_collections_path, class: 'text-muted', data: { turbolinks: disable_turbolink } %>
   							</div>
   						</div>
   					</div>
