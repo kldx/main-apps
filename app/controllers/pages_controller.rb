@@ -9,6 +9,9 @@ class PagesController < ApplicationController
 
     @featured_articles = @articles.been_approved.featured.take(3)
     @all_featured_articles = @featured_articles.shift(3)
+
+    # listing for store shop collection and products
+    @store_products = Store::Product.been_approved
   end
 
   def articles

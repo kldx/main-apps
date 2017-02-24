@@ -7,6 +7,7 @@ class Store::Shop::Collection < ApplicationRecord
   after_create :set_status
 
   default_scope -> { order('store_shop_collections.created_at DESC') }
+  scope :is_active, -> { where ('status = active')}
 
   validates :title, presence: {message: "can't be blank"}, length: { in: 2..250 }
 

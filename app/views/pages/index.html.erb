@@ -131,4 +131,38 @@
     <%= link_to "see more", articles_path, class: "btn btn-primary btn-xs btn-kldx-red", data: { turbolinks: disable_turbolink } %>
   </div>
 
+  <section id="listing">
+
+    <% @store_products.each do |product| %>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="article article-list">
+          <%= link_to article_show_path(product), class: "article-no-hover", data: { turbolinks: disable_turbolink } do %>
+            <div class="gradientl"></div>
+            <% if product.try(:default_picture?) %>
+              <%= image_tag(product.default_picture_url(:low_res), class: "img-responsive") %>
+            <% else %>
+              <%= image_tag('article_default_image_low_res.png', class: "img-responsive") %>
+            <% end %>
+            <div class="status status-price">
+              <span class="label label-price">
+                <%= number_to_currency(product.price) %>
+              </span>
+            </div>
+            <div class="mini-desc">
+              <div class="article-title">
+                <%= product.name %>
+              </div>
+              <div class="article-date">
+                <i class="fa fa-clock-o"></i> <%= time_ago_in_words(product.created_at) %> ago
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+
+  </section>
+
 </div>

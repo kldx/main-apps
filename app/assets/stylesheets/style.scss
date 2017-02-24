@@ -4,9 +4,14 @@ body {
   font-family: "ProximaNovaRegular", "helvetica neue", helvetica, sans-serif;
 }
 
-.label-review {
+.status-price {
+    margin-top: 8px;
+}
+
+.label-price {
   background-color: #9013FE;
   border: 1px #690BBC solid;
+  font-size: 14px;
 }
 
 .label-contributor {
