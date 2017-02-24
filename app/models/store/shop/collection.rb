@@ -3,6 +3,8 @@ class Store::Shop::Collection < ApplicationRecord
   after_create :create_collection
   after_create :set_status
 
+  default_scope -> { order('store_shop_collections.created_at DESC') }
+
   validates :title, presence: {message: "can't be blank"}, length: { in: 2..250 }
 
   def set_status
