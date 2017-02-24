@@ -20,6 +20,7 @@ class Admin::Store::Shop::CollectionsController < Store::Shop::Collection::Admin
   def show
     @store_shop_collection = Store::Shop::Collection.find params[:id]
     @response = Billplz::GetCollection.retrieve(@store_shop_collection.collection_id)
+    @store_product = @store_shop_collection.store_products
   end
 
   private

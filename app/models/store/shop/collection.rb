@@ -1,5 +1,7 @@
 class Store::Shop::Collection < ApplicationRecord
 
+  has_many :store_products, as: :productable, dependent: :destroy, class_name: 'Store::Product'
+
   after_create :create_collection
   after_create :set_status
 

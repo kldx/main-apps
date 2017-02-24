@@ -45,6 +45,29 @@
           <p><strong>Collection Status:</strong> <%= @store_shop_collection.status %></p>
         </div>
 			</section>
+      <section class="panel panel-featured-left panel-featured-primary">
+				<header class="panel-heading">
+					<h2 class="panel-title">Products</h2>
+				</header>
+        <div class="panel-body">
+          <p>
+            <%= link_to new_admin_store_shop_collection_product_path(@store_shop_collection), class: "btn btn-xs btn-primary", data: { turbolinks: disable_turbolink } do %>
+              <i class="fa fa-plus-circle"></i> Create Product
+            <% end %>
+          </p>
+          <table class="table table-bordered table-striped mb-none" id="datatable-kldx">
+            <thead>
+              <tr>
+                <th class="col-md-1">No</th>
+                <th class="col-md-6">Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <%= render :partial => "store_shop_products", :collection => @store_product %>
+            </tbody>
+          </table>
+        </div>
+			</section>
     </div>
     <div class="col-md-4">
       <section class="panel">

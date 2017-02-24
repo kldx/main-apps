@@ -1,0 +1,62 @@
+<% content_for :title do %>
+  KLDX Team | New Product for <%= @store_shop_collection.title %> collection
+<% end %>
+
+<% content_for :meta_tags do %>
+  <%= render :partial => 'application/meta_tags',
+             :locals => {
+               :type => "website",
+               :title => "KLDX Team | New Shop Collection",
+               :url => request.url,
+               :description => "Kuala Lumpur DX Team Group Activists are moving on Amateur Radio activity especially contesting, IOTS, Field Day, and also Emergency Communication",
+               :canonical => request.url,
+               :og_title => "KLDX Team | New Shop Collection",
+               :og_description => "Kuala Lumpur DX Team Group Activists are moving on Amateur Radio activity especially contesting, IOTS, Field Day, and also Emergency Communication"
+            } %>
+<% end %>
+
+<section role="main" class="content-body">
+	<header class="page-header">
+		<h2>New Shop Collection</h2>
+
+		<div class="right-wrapper pull-right">
+			<ol class="breadcrumbs">
+				<li>
+          <%= link_to dashboard_path, data: { turbolinks: disable_turbolink } do %>
+            <i class="fa fa-home"></i>
+          <% end %>
+				</li>
+				<li><span>New Shop Collection</span></li>
+			</ol>
+
+			<a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
+		</div>
+	</header>
+
+	<!-- start: page -->
+	<div class="row">
+    <div class="col-md-8">
+      <section class="panel panel-featured-left panel-featured-primary">
+				<header class="panel-heading">
+					<h2 class="panel-title">Create New Shop Collection</h2>
+				</header>
+        <div class="panel-body">
+          <%= form_for @store_product, url: admin_store_shop_collection_products_path, multipart: true, html: { class: "form-horizontal form-bordered", method: :post } do |f| %>
+            <%= render partial: 'form', locals: {f: f, post: @store_product} %>
+          <% end %>
+        </div>
+			</section>
+    </div>
+    <div class="col-md-4">
+      <section class="panel">
+				<header class="panel-heading">
+					<h2 class="panel-title">* tips</h2>
+				</header>
+        <div class="panel-body">
+
+        </div>
+			</section>
+    </div>
+  </div>
+	<!-- end: page -->
+</section>
