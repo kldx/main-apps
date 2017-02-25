@@ -4,7 +4,7 @@ module Billplz
       HTTParty.post(Settings.billplz.collections.url,
       {
         :basic_auth => {
-          :username => ENV['BILLPLZ_STAGING_API_SECRET_KEY']
+          :username => ENV['BILLPLZ_API_SECRET_KEY']
         },
         :body => {
           :title => title

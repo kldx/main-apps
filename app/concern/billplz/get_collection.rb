@@ -4,7 +4,7 @@ module Billplz
       HTTParty.get(Settings.billplz.collections.url+"/#{collection_id}",
       {
         :basic_auth => {
-          :username => ENV['BILLPLZ_STAGING_API_SECRET_KEY']
+          :username => ENV['BILLPLZ_API_SECRET_KEY']
         }
       })
     end
