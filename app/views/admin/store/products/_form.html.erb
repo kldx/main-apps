@@ -1,0 +1,96 @@
+<% if @store_product.errors.any? %>
+<div class="alert alert-danger alert-dismissable">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <strong><%= pluralize(@store_product.errors.count, "error") %> prohibited this user from being saved:</strong>
+  <ul>
+    <% @store_product.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="form-group">
+  <%= f.label :name, "Product Name", class: "col-md-2 control-label" %>
+	<div class="col-md-10">
+    <%= f.text_field :name, :class => "form-control" %>
+	</div>
+</div>
+
+<div class="form-group">
+  <%= f.label :default_picture, "Default Picture", class: "col-md-2 control-label" %>
+  <div class="col-md-10">
+    <p>
+      <% if @store_product.try(:default_picture?) %>
+        <%= image_tag(@store_product.default_picture_url(:high_res), class: "img-responsive") %>
+      <% else %>
+        <%= image_tag('article_default_image_high_res.png', class: "img-responsive") %>
+      <% end %>
+    </p>
+    <%= f.file_field :default_picture, :class => "form-control" %>
+    <%= f.hidden_field :default_picture_cache %>
+    <span class="help-block">
+      For best result, please upload in high resolution, 1200px * 630px
+    </span>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= f.label :details, "Details", class: "col-md-2 control-label" %>
+	<div class="col-md-10">
+    <%= f.cktext_area :details, :class => "form-control" %>
+	</div>
+</div>
+
+<div class="form-group">
+  <%= f.label :price, "Price", class: "col-md-2 control-label" %>
+	<div class="col-md-10">
+    <div class="input-group mb-md">
+      <span class="input-group-addon">
+        <i class="fa fa-dollar"></i>
+      </span>
+      <%= f.text_field :price, :class => "form-control" %>
+    </div>
+	</div>
+</div>
+
+<div class="form-group">
+	<%= f.label :quantity, "Quantity", class: "col-md-2 control-label" %>
+	<div class="col-md-10">
+		<div data-plugin-spinner>
+			<div class="input-group input-small">
+        <%= f.text_field :quantity, :class => "spinner-input form-control", readonly: "readonly" %>
+				<div class="spinner-buttons input-group-btn btn-group-vertical">
+					<button type="button" class="btn spinner-up btn-xs btn-default">
+						<i class="fa fa-angle-up"></i>
+					</button>
+					<button type="button" class="btn spinner-down btn-xs btn-default">
+						<i class="fa fa-angle-down"></i>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="form-group">
+  <%= f.label :availability, "Availability", class: "col-md-2 control-label" %>
+  <div class="col-md-10">
+    <%= f.select :availability, Store::Product::PRODUCT_AVAILABILITY, { prompt: "-- Choose Product Availability" }, { class: 'form-control populate placeholder', 'data-plugin-selectTwo' => 'data-plugin-selectTwo', 'data-plugin-options' => '{ "placeholder": "Choose Product Availability", "allowClear": true }' } %>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= f.label :product_type, "Product Type", class: "col-md-2 control-label" %>
+  <div class="col-md-10">
+    <%= f.select :product_type, Store::Product::PRODUCT_TYPES, { prompt: "-- Choose Product Type" }, { class: 'form-control populate placeholder', 'data-plugin-selectTwo' => 'data-plugin-selectTwo', 'data-plugin-options' => '{ "placeholder": "Choose Product Type", "allowClear": true }' } %>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-2 control-label"></label>
+  <div class="col-md-10">
+    <%= f.button "Submit", :class => "btn btn-primary", data: { disable_with: "<i class='fa fa-spinner fa-spin'></i> Submitting..." } %>
+    <%= link_to 'Cancel', admin_store_shop_collection_path(@store_shop_collection), :class => "btn btn-link", data: { turbolinks: disable_turbolink } %>
+  </div>
+</div>

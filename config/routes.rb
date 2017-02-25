@@ -24,6 +24,19 @@ Rails.application.routes.draw do
         patch :mark_pending
       end
     end
+    namespace :store, path: '/store' do
+      get "/" => "dashboards#index"
+      namespace :shop, path: '/shop' do
+        resources :collections, except: [:edit, :update, :destroy] do
+          resources :products, except: [:index, :destroy]
+        end
+      end
+      namespace :merchandise, path: '/merchandise' do
+        resources :collections, except: [:edit, :update, :destroy] do
+          resources :products, except: [:index, :destroy]
+        end
+      end
+    end
   end
 
   resources :tags, only: [:index, :show]
@@ -34,4 +47,8 @@ Rails.application.routes.draw do
   # articles
   get '/articles' => 'pages#articles'
   get '/articles/:id' => 'pages#article_show', as: 'article_show'
+
+  # products
+  get '/products' => 'pages#products'
+  get '/products/:id' => 'pages#product_show', as: 'product_show'
 end

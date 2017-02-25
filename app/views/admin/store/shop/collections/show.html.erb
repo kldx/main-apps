@@ -1,0 +1,85 @@
+<% content_for :title do %>
+  KLDX Team | Shop Collection - <%= @store_shop_collection.title %>
+<% end %>
+
+<% content_for :meta_tags do %>
+  <%= render :partial => 'application/meta_tags',
+             :locals => {
+               :type => "website",
+               :title => "KLDX Team | Shop Collection - #{@store_shop_collection.title}",
+               :url => request.url,
+               :description => "Kuala Lumpur DX Team Group Activists are moving on Amateur Radio activity especially contesting, IOTS, Field Day, and also Emergency Communication",
+               :canonical => request.url,
+               :og_title => "KLDX Team | Shop Collection - #{@store_shop_collection.title}",
+               :og_description => "Kuala Lumpur DX Team Group Activists are moving on Amateur Radio activity especially contesting, IOTS, Field Day, and also Emergency Communication"
+            } %>
+<% end %>
+
+<section role="main" class="content-body">
+	<header class="page-header">
+		<h2><%= @store_shop_collection.title %> - Shop Collection</h2>
+
+		<div class="right-wrapper pull-right">
+			<ol class="breadcrumbs">
+				<li>
+          <%= link_to dashboard_path, data: { turbolinks: disable_turbolink } do %>
+            <i class="fa fa-home"></i>
+          <% end %>
+				</li>
+				<li><span><%= @store_shop_collection.title %> - Shop Collection</span></li>
+			</ol>
+
+			<a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
+		</div>
+	</header>
+
+	<!-- start: page -->
+	<div class="row">
+    <div class="col-md-8">
+      <section class="panel panel-featured-left panel-featured-primary">
+				<header class="panel-heading">
+					<h2 class="panel-title">List of Products</h2>
+				</header>
+        <div class="panel-body">
+          <p>
+            <%= link_to new_admin_store_shop_collection_product_path(@store_shop_collection), class: "btn btn-xs btn-primary", data: { turbolinks: disable_turbolink } do %>
+              <i class="fa fa-plus-circle"></i> Create Product
+            <% end %>
+          </p>
+          <table class="table table-bordered table-striped mb-none" id="datatable-kldx">
+            <thead>
+              <tr>
+                <th class="col-md-1">No</th>
+                <th class="col-md-6">Name</th>
+                <th class="col-md-2">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <%= render :partial => "store_shop_product", :collection => @store_product %>
+            </tbody>
+          </table>
+        </div>
+        <div class="panel-footer">
+          <%= link_to 'Back', admin_store_shop_collections_path, :class => "btn btn-default", data: { turbolinks: disable_turbolink } %>
+        </div>
+			</section>
+    </div>
+    <div class="col-md-4">
+      <section class="panel">
+				<header class="panel-heading">
+					<h2 class="panel-title">Info</h2>
+				</header>
+        <div class="panel-body">
+          <p><strong>Collection Title:</strong> <%= @store_shop_collection.title.titleize %></p>
+          <p><strong>Collection Status:</strong> <%= @store_shop_collection.status %></p>
+          <pre>
+            <span class='text-danger'>
+              <%= JSON.pretty_generate(@response) %>
+            </span>
+          </pre>
+        </div>
+			</section>
+    </div>
+  </div>
+	<!-- end: page -->
+</section>

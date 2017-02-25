@@ -3,13 +3,13 @@ class Article < ApplicationRecord
   extend FriendlyId
   include HTTParty
   acts_as_taggable
+
   mount_uploader :default_image, DefaultImageUploader
+  friendly_id :title, use: [:slugged, :finders, :history]
 
   belongs_to :user
 
   after_initialize :set_default_status, if: :new_record?
-
-  friendly_id :title, use: [:slugged, :finders, :history]
 
   validates :title, presence: {message: "can't be blank"}, length: { in: 2..250 }
   validates :description, presence: {message: "can't be blank"}
