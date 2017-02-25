@@ -10,7 +10,7 @@ class Store::Product < ApplicationRecord
   belongs_to :productable, polymorphic: true
 
   PRODUCT_AVAILABILITY = [
-    "In Stock", "Out of Stock", "Discontinued"
+    "In Stock", "Out of Stock", "Discontinued", "Pre Order"
   ]
 
   PRODUCT_TYPES = [

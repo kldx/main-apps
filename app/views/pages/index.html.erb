@@ -133,11 +133,11 @@
 
   <section id="listing">
 
-    <% @store_products.each do |product| %>
     <div class="row">
+      <% @store_products.each do |product| %>
       <div class="col-md-4">
         <div class="article article-list">
-          <%= link_to article_show_path(product), class: "article-no-hover", data: { turbolinks: disable_turbolink } do %>
+          <%= link_to product_show_path(product), class: "article-no-hover", data: { turbolinks: disable_turbolink } do %>
             <div class="gradientl"></div>
             <% if product.try(:default_picture?) %>
               <%= image_tag(product.default_picture_url(:low_res), class: "img-responsive") %>
@@ -160,8 +160,8 @@
           <% end %>
         </div>
       </div>
-    </div>
     <% end %>
+    </div>
 
   </section>
 

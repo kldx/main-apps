@@ -691,6 +691,20 @@ li.register-link > a {
   color: #E62117;
 }
 
+.price h1,
+.price span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.price h1 {
+  font-weight: 600;
+}
+
+.price p {
+  color: #e74c3c;
+}
+
 #footer {
   font-family: "ProximaNovaRegular", "helvetica neue", helvetica, sans-serif;
   margin-top: 20px;

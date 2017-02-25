@@ -1,0 +1,166 @@
+<% content_for :title do %>
+  KLDX | <%= @product.name %>
+<% end %>
+
+<% content_for :meta_tags do %>
+  <%= render :partial => 'application/meta_tags',
+             :locals => {
+               :type => "article",
+               :title => "KLDX | #{@product.name}",
+               :url => request.url,
+               :description => "#{truncate(strip_tags(@product.details), length: 100)}",
+               :canonical => request.url,
+               :og_title => "KLDX | #{@product.name}",
+               :og_description => "#{truncate(strip_tags(@product.details), length: 100)}",
+               :og_image => "#{@product.default_picture_url(:high_res)}",
+               :article_author => "https://www.facebook.com/kldxteam"
+            } %>
+<% end %>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-8">
+      <div class="page-header">
+        <h1 class="article-title">
+          <%= @product.name %>
+        </h1>
+        <div class="article-owner">
+          <p>
+            <i class="fa fa-clock-o"></i> <%= time_ago_in_words(@product.created_at) %> ago
+          </p>
+        </div>
+      </div>
+      <div class="article-content">
+        <div class="row">
+          <div class="col-md-8">
+            <% if @product.try(:default_picture?) %>
+              <%= image_tag(@product.default_picture_url(:high_res), class: "img-responsive") %>
+            <% else %>
+              <%= image_tag('article_default_image_high_res.png', class: "img-responsive") %>
+            <% end %>
+          </div>
+          <div class="col-md-4">
+            <div class="price">
+              <h1><%= number_to_currency(@product.price) %></h1>
+              <!-- grab this variable from pages_helper.rb -->
+              <%= check_availability(@product) %>
+              <% if in_stock %>
+                <% if less_quantity %>
+                  <p>Hurry up! Only <%= @product.quantity %> left!</p>
+                <% end %>
+              <% end %>
+            </div>
+            <h5><strong>Product ID: </strong><%= @product.productable.collection_id %></h5>
+            <h5><strong>Conditions: </strong><%= @product.product_type %></h5>
+            <div class="">
+              <%= link_to "Buy NOW", "", class: "btn btn-block btn-kldx-solid-red #{'disabled' if !in_stock}" %>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+        <div class="row">
+          <div class="col-md-6">
+            <a href="http://www.facebook.com/share.php?u=<%= request.url %>&title=<%= @product.name %>?utm_source=facebook&utm_medium=product&utm_campaign=social_media" class="btn btn-primary btn-facebook btn-block btn-facebook fb-popup">
+              <i class="fa fa-facebook-official"></i> Share on Facebook
+            </a>
+          </div>
+          <div class="col-md-6">
+            <a class="btn btn-primary btn-facebook btn-block btn-twitter twitter-popup" href="http://twitter.com/intent/tweet?status=<%= @product.name %> at+<%= request.url %>?utm_source=twitter&utm_medium=product&utm_campaign=social_media">
+              <i class="fa fa-twitter-square"></i> Tweet on Twitter
+            </a>
+          </div>
+        </div>
+        <hr>
+        <p class="text-justify content">
+          <%= @product.details.html_safe %>
+        </p>
+      </div>
+
+      <section id="comment">
+
+        <div class="page-header">
+          <h3>Leave a comment <span class="label label-default"><span class="fb-comments-count" data-href="<%= request.url %>"></span></span></h3>
+        </div>
+
+        <div class="fb-comments" data-href="<%= request.url %>" data-width="100%" data-numposts="5"></div>
+
+      </section>
+      <hr>
+    </div>
+
+    <div class="col-md-4">
+      <div class="social-media">
+        <div class="fb-page" data-href="https://www.facebook.com/kldxteam/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+          <blockquote cite="https://www.facebook.com/kldxteam/" class="fb-xfbml-parse-ignore">
+            <a href="https://www.facebook.com/kldxteam/">Kuala Lumpur DX Team (KLDX)</a>
+          </blockquote>
+        </div>
+      </div>
+
+      <div class="sidebar-stats story-stat">
+        <div class="share-stat">
+          <em><%= @fbshares %></em> share
+        </div>
+      </div>
+      <div class="sidebar-stack">
+        <div class="sidebar-articles article-recommendations">
+          <span class="section-label label-head label-styled">More products to view</span>
+        </div>
+        <% @random_product.each do |product| %>
+        <div class="article article-list">
+          <%= link_to product_show_path(product), class: "article-no-hover", data: { turbolinks: disable_turbolink } do %>
+            <div class="gradientl"></div>
+            <% if product.try(:default_picture?) %>
+              <%= image_tag(product.default_picture_url(:low_res), class: "img-responsive") %>
+            <% else %>
+              <%= image_tag('article_default_image_low_res.png', class: "img-responsive") %>
+            <% end %>
+            <div class="mini-desc">
+              <div class="article-title">
+                <%= product.name %>
+              </div>
+              <div class="article-date">
+                <i class="fa fa-clock-o"></i> <%= time_ago_in_words(product.created_at) %> ago
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  $('.fb-popup').click(function(event) {
+    var width  = 575,
+        height = 400,
+        left   = ($(window).width()  - width)  / 2,
+        top    = ($(window).height() - height) / 2,
+        url    = this.href,
+        opts   = 'status=1' +
+                 ',width='  + width  +
+                 ',height=' + height +
+                 ',top='    + top    +
+                 ',left='   + left;
+    window.open(url, 'fb', opts);
+    return false;
+  });
+  $('.twitter-popup').click(function(event) {
+    var width  = 575,
+        height = 400,
+        left   = ($(window).width()  - width)  / 2,
+        top    = ($(window).height() - height) / 2,
+        url    = this.href,
+        opts   = 'status=1' +
+                 ',width='  + width  +
+                 ',height=' + height +
+                 ',top='    + top    +
+                 ',left='   + left;
+    window.open(url, 'twitter', opts);
+    return false;
+  });
+</script>

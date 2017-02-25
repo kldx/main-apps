@@ -27,6 +27,19 @@ class PagesController < ApplicationController
     @fbshares = @response["shares"] || 0
   end
 
+  def products
+    @products = Store::Product.been_approved.paginate(:page => params[:page], :per_page => 10)
+  end
+
+  def product_show
+    @product = Store::Product.friendly.find params[:id]
+    @random_product = Store::Product.been_approved.take(4)
+
+    url = "https://graph.facebook.com/?id=" + product_show_url(@product, host: "#{Settings.domain}")
+    @response = HTTParty.get(url)
+    @fbshares = @response["shares"] || 0
+  end
+
   def method
     #code
   end
