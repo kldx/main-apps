@@ -1,4 +1,4 @@
-class Admin::Store::DashboardsController < Store::AdminController
+class Admin::Store::DashboardsController < Store::Product::AdminController
   def index
     @store_shop_collection = Store::Shop::Collection.all
     @store_merchandise_collection = Store::Merchandise::Collection.all
