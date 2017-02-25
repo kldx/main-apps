@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     namespace :store, path: '/store' do
       get "/" => "dashboards#index"
       namespace :shop, path: '/shop' do
-        resources :collections, except: [:edit, :update, :destroy] do
+        resources :collections, except: [:edit, :update, :destroy], controller: 'collections' do
           resources :products, except: [:index, :destroy], controller: 'products'
         end
       end
