@@ -3,7 +3,7 @@ s3:
   bucket: kldx-prod
   region: ap-southeast-1
 image_host: https://kldx-prod.s3.amazonaws.com
-ga_tracking_id:
+ga_tracking_id: UA-93230339-1
 facebook:
   app_id: '2005969142963890'
 billplz:
